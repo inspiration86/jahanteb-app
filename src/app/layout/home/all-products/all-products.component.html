@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="category col-lg-3 mt-3">
+      <h2 class="text-right">دسته بندی محصولات</h2>
+      <p-accordion *ngFor="let item of category">
+        <p-accordionTab [header]="item['title']">
+          <!--              <app-new-services-cover></app-new-services-cover>-->
+          <ng-template pTemplate="content" >
+            <p class="text-right" *ngFor="let i of item['SubCategory'];let j=index">
+            <a (click)="goPage(i._id)"> {{i.title}}</a>
+            </p>
+          </ng-template>
+
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+    <div class="container pricing col-9">
+      <div class="row">
+        <div class="box col-lg-3 col-md-6 mb-2" *ngFor="let item of products">
+          <!--        <div class="badges"></div>-->
+          <!--            <div class="badges">جدید</div>-->
+          <div class="actions-list" >
+            <a class="action"><i class="pi pi-eye"></i></a>
+            <a class="action"><i class="pi pi-bookmark"></i></a>
+            <a class="action"><i class="pi pi-heart"></i></a>
+          </div>
+          <img src="../../../../assets/images/dep.jpg" class="img-fluid" [alt]="">
+          <div class="category d-flex flex-row">
+            <div class="ml-auto">{{item['SubCategory'][0].title}}</div>
+            <div>{{item['SubCategory'][0].title}}</div>
+          </div>
+          <div class="d-flex flex-row">
+            <div class="ml-auto">
+              <a><h5>{{item['title']}}</h5></a>
+            </div>
+            <div class="prices">
+              {{item['price']|number}} تومان
+            </div>
+          </div>
+          <a class="btn-buy" [routerLink]="['/product-detail/',item._id]">مشاهده جزییات</a>
+        </div>
+      </div>
+<!--      <div class="alert alert-danger" *ngIf="countOfProduct<=0">هیچ محصولی موجود نیست</div>-->
+      <p-paginator [rows]="1" dir="ltr"
+                   [totalRecords]="products"
+                   [rowsPerPageOptions]="[3,10,15]"
+
+                   (onPageChange)="onChangePage($event)"></p-paginator>
+    </div>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

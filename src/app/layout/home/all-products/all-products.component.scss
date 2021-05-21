@@ -1,0 +1,181 @@
+
+
+
+:host ::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
+  margin-right: 0.5rem;
+  position: absolute;
+  left: 10px;
+}
+
+:host ::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link {
+  padding: 1rem;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  color: #4d4d4d;
+  background: #ffffff;
+}
+
+:host ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+  background: #ffffff !important;
+  color: #4d4d4d !important;
+}
+
+:host ::ng-deep .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
+  background: #ffffff !important;
+  color: #4d4d4d !important;
+}
+
+:host ::ng-deep .p-accordion .p-accordion-content {
+  border: none !important;
+}
+
+:host ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .pi-chevron-right:before {
+  content: "\e900";
+}
+
+
+
+
+
+
+
+
+
+
+
+.category{
+background-color: #fff;
+font-family: IRANSans_Light;
+}
+.pricing{
+  padding: 5px 30px;
+  text-align:center;
+  color: #034251;
+}
+
+.pricing .box {
+  padding: 40px 20px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.pricing .box:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  z-index: 9999999!important;
+}
+
+.pricing img {
+  padding: 30px 40px;
+}
+.pricing .btn-buy {
+  display: inline-block;
+  padding: 8px 40px 10px 40px;
+  border-radius: 50px;
+  color: #0cb1c0;
+  transition: none;
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0.3s;
+  background: #0cb1c0;
+  color: #fff;
+}
+
+.pricing .btn-buy:hover {
+  border: 1px solid #0cb1c0;
+  background: #ffffff;
+  font-family: IRANSans_Bold;
+  text-decoration: none;
+  color: #0cb1c0;
+}
+
+.pricing .box .badges{
+  position: absolute;
+  font-size: 13px;
+  line-height: 15px;
+  top: 18px;
+  right:25px;
+  padding: 4px 12px;
+  background-color: #0cb1c0;
+  color: white;
+  border-radius: 10px;
+}
+.pricing .box .actions-list {
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  left: 0;
+  top: 15px;
+}
+.pricing .box .actions-list .action {
+  position: relative;
+  display: block;
+  padding-top: 10px;
+  padding-left: 20px;
+  margin: 0;
+  border: none;
+  transition: color .08s,background .08s;
+  background-color: transparent;
+  color: #ccc;
+}
+.pricing .box .actions-list .action:last-child {
+  border-bottom-left-radius: 2px;
+}
+
+.pricing .box .actions-list .action i{
+  color: #d9dfde;
+}
+.pricing .box .actions-list .action:hover i{
+  color: #00dfb2;
+}
+.pricing .box .category {
+  font-size: 12px;
+  line-height: 1;
+  color: #999;
+}
+.pricing .box .title {
+  line-height: 1.1875;
+  direction: rtl;
+  margin: 15px 0 5px;
+}
+.pricing .box .title h5 {
+  font-weight: 400;
+  font-size: 14px;
+  color: #053f4a;
+  text-align: center;
+  font-family: IRANSans_Bold;
+}
+.pricing .box .title h5:hover {
+   color: #00dfb2;
+}
+.pricing  .prices {
+  color: #444444;
+  font-size: 13px;
+  line-height: 1;
+  margin-right: auto;
+  font-family: IRANSans_Light;
+}
+
+.pricing .prices .na {
+  color: #ccc;
+  text-decoration: line-through;
+}
+:host ::ng-deep .page-item.previous-item a:after {
+  content: '<';
+  font-size: 16px;
+}
+:host ::ng-deep .page-item.last-item a:after {
+  content: '>>';
+  font-size: 16px;
+}
