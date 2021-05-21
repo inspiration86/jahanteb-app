@@ -18,7 +18,7 @@
     float: right;
     width: 44px;
     height: 44px;
-    background: #d6e9fa;
+    background: #e9f7f8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,8 +28,8 @@
 
   .contact .info h4 {
     padding: 0 60px 0 0;
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
     margin-bottom: 5px;
     color: #2c4964;
   }
@@ -37,15 +37,15 @@
   .contact .info p {
     padding: 0 60px 0 0;
     margin-bottom: 0;
-    font-size: 14px;
+    font-size: 13px;
     color: #2c4964;
   }
 
-  .contact .info .email, .contact .info .phone {
+  .contact .info .email, .contact .info .phone, .contact .info .time {
     margin-top: 40px;
   }
 
-  .contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i {
+  .contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i ,.contact .info .time:hover i{
     background: #0cb1c0;
     color: #fff;
   }
