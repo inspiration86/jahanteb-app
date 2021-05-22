@@ -17,6 +17,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CategoriesComponent } from './categories/categories.component';
+import {AdminGuard} from '../../Auth/Guard/admin.guard';
 
 const routes: Routes = [
   {
@@ -26,10 +27,12 @@ const routes: Routes = [
   {
     path: 'reset',
     component: ResetPasswordComponent,
+    canActivate:[AdminGuard]
   },
   {
     path: 'panel',
     component: DashboardComponent,
+    canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -40,6 +43,7 @@ const routes: Routes = [
         component: ProductsComponent,
       },
     ],
+    canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -49,7 +53,7 @@ const routes: Routes = [
         path: 'category',
         component: CategoriesComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -59,7 +63,7 @@ const routes: Routes = [
         path: 'blog',
         component: BlogsComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -69,7 +73,7 @@ const routes: Routes = [
         path: 'discount',
         component: DiscountsComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -79,7 +83,7 @@ const routes: Routes = [
         path: 'user',
         component: UsersComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -89,7 +93,7 @@ const routes: Routes = [
         path: 'contact',
         component: ContactFormMessagesComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -99,7 +103,7 @@ const routes: Routes = [
         path: 'order',
         component: OrdersComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -109,7 +113,7 @@ const routes: Routes = [
         path: 'subscription',
         component: SubscriptionUsersComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -119,7 +123,7 @@ const routes: Routes = [
         path: 'comment',
         component: CommentsComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -129,7 +133,7 @@ const routes: Routes = [
         path: 'admin',
         component: AdministratorsComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -139,7 +143,7 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -149,7 +153,7 @@ const routes: Routes = [
         path: 'faq',
         component: FaqsComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   },
   {
     path: '',
@@ -159,7 +163,7 @@ const routes: Routes = [
         path: 'catalog',
         component: CatalogComponent,
       },
-    ],
+    ],  canActivate:[AdminGuard]
   }
 ];
 
