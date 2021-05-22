@@ -49,4 +49,10 @@ export class UserService {
   getDetailOrder(orderID: any) {
     return this.http.get('http://api.jahantebkhoram.ir/api/v1/user/getOrder/' + orderID);
   }
+  changeMobileNumber(id: any, data: any) {
+    return this.http.put('http://api.jahantebkhoram.ir/api/v1/user/changeMobileNumber/' + id, data);
+  }
+  sendCodeToEmail(data: any) {
+    return this.http.post('http://api.jahantebkhoram.ir/api/v1/user/sendCodeToEmail', data);
+  }
 }

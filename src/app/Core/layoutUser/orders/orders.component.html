@@ -1,53 +1,4 @@
 <div class="container-fluid">
-<!--  <p-panel header="لیست سفارش ها">-->
-<!--    <div class=" ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">-->
-<!--      <div class="card" #dt>-->
-<!--        &lt;!&ndash;        <input  class="input-filter" type="text" pInputText size="50" placeholder="جستجوی سراسری" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">&ndash;&gt;-->
-<!--        <p-table [value]="orderList" [columns]="cols" [scrollable]="true" [rows]="100" scrollHeight="250px"-->
-<!--                 [virtualScroll]="true" [virtualRowHeight]="34">-->
-<!--          <ng-template pTemplate="header" let-columns>-->
-<!--            <tr>-->
-<!--              <th *ngFor="let col of columns">-->
-<!--                {{col.header}}-->
-<!--              </th>-->
-<!--            </tr>-->
-<!--          </ng-template>-->
-<!--          <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">-->
-<!--            <tr style="height:34px">-->
-<!--              <td>-->
-<!--                {{rowIndex + 1}}-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                <img [src]="rowData['Product'][0]['image']" [alt]="rowData['Product'][0]['title']" width="100"/>-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                {{rowData['Product'][0]['title']}}-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                1400/02/12-->
-
-<!--              </td>-->
-<!--              <td>-->
-<!--                {{rowData['Product'][0]['price']}}-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                {{rowData['statusOrder']}}-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"-->
-<!--                        (click)="showDialogEditOrder(rowData['_id'])"></button>-->
-<!--              </td>-->
-<!--              <td>-->
-<!--                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"-->
-<!--                        (click)="showDialogDelOrder(rowData['_id'])"></button>-->
-<!--              </td>-->
-
-<!--            </tr>-->
-<!--          </ng-template>-->
-<!--        </p-table>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </p-panel>-->
   <div class="pnl-content p-3">
     <div class="box text-right" dir="rtl">
       <p-table
@@ -95,7 +46,10 @@
               تعداد
               <p-sortIcon field="count"></p-sortIcon>
             </th>
-
+            <th pSortableColumn="date">
+              توضیحات
+              <p-sortIcon field="description"></p-sortIcon>
+            </th>
             <th pSortableColumn="date">
               تاریخ
               <p-sortIcon field="date"></p-sortIcon>
@@ -137,6 +91,9 @@
                   {{ order.count }}
                 </ng-template>
               </p-cellEditor>
+            </td>
+            <td>
+              {{ order.description }}
             </td>
             <td>
               {{ order.date }}

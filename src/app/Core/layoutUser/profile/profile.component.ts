@@ -16,9 +16,9 @@ interface City {
   providers: [MessageService]
 })
 export class ProfileComponent implements OnInit {
-
   public formGroup: FormGroup;
   formGroupPassword: FormGroup;
+  formGroupMobileChange: FormGroup;
   displayBasic: boolean = false;
   spinnerSuccess: boolean = true;
   states: City[] = [];
@@ -42,6 +42,11 @@ export class ProfileComponent implements OnInit {
     password: '',
     rPass: ''
   };
+  mobilePassword = {
+    mobile: ''
+  };
+  recivedCode: string = '';
+  sendCode: string;
   getInfoUser: any;
   errorMessages = {
     fullName: [{type: 'required', message: 'نام و نام خانوادگی را وارد کنید.'}],
@@ -53,6 +58,8 @@ export class ProfileComponent implements OnInit {
       {type: 'pattern', message: 'لطفا شماره موبایل معتبر وارد کنید.'}
     ],
     phone: [{type: 'required', message: 'شماره تلفن ثابت  را وارد کنید.'}],
+    email: [{type: 'required', message: 'ایمیل را وارد کنید.'}],
+    sendCode: [{type: 'required', message: 'کد ایمیل شده را وارد کنید.'}],
     country: [{type: 'required', message: 'کشور را وارد کنید.'}],
     city: [{type: 'required', message: 'شهر را وارد کنید.'}],
     state: [{type: 'required', message: 'استان را وارد کنید.'}],
@@ -113,7 +120,11 @@ export class ProfileComponent implements OnInit {
       {
         validators: this.password.bind(this)
       });
-
+    this.formGroupMobileChange = this.fb.group({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      sendCode: new FormControl('', [Validators.required]),
+      mobile: new FormControl('', [Validators.required,]),
+    });
   }
 
   password(formGroup: FormGroup): any {
@@ -305,13 +316,29 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  changeMobileNumber() {
+    if (this.recivedCode === this.sendCode) {
+      this.userService.changeMobileNumber(this.user.id, this.mobilePassword).subscribe((response) => {
+        console.log(response);
+        if (response['success'] === true) {
+          this.loadInfoUser();
+          this.messageService.add({severity: 'success', summary: 'موفق', detail: response['data']});
+
+        }
+      });
+    } else {
+      this.messageService.add({severity: 'error', summary: 'اخطار', detail: 'کد تاییدیه وارد شده اشتباه می باشد'});
+
+    }
+  }
+
   citynChange(e: any): void {
-    this.user.city=e.value['label'];
+    this.user.city = e.value['label'];
     // this.formGroup.controls['city'].setValue(e.value['label']);
   }
 
   stateOnChange(e: any): void {
-    this.user.state=e.value['label'];
+    this.user.state = e.value['label'];
     this.formGroup.controls['state'].setValue(e.value['label']);
     this.cities = [];
     switch (e.value['value']) {
@@ -787,6 +814,15 @@ export class ProfileComponent implements OnInit {
         break;
       }
     }
+  }
+
+  sendCodeToEmail() {
+    this.userService.sendCodeToEmail(this.formGroupMobileChange.value).subscribe((response) => {
+      if (response['success'] === true) {
+        this.recivedCode = response['code'];
+        this.messageService.add({severity: 'success', summary: 'موفق', detail: response['data']});
+      }
+    });
   }
 
   onUpload(event) {

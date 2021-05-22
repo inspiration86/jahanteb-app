@@ -35,6 +35,7 @@ export class OrdersComponent implements OnInit {
       {field: 'نام محصول', header: 'نام محصول'},
       {field: 'تاریخ سفارش ', header: 'تاریخ سفارش '},
       {field: 'قیمت ', header: 'قیمت '},
+      {field: 'توضیحات', header: 'توضیحات '},
       {field: 'وضعیت سفارش', header: 'وضعیت سفارش'},
       {field: 'ویرایش', header: 'ویرایش'},
       {field: 'حذف', header: 'حذف'},
