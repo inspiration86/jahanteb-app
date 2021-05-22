@@ -7,6 +7,7 @@ import set = Reflect.set;
 import {MainService} from '../../layout/main.service';
 import {LocalStorageService} from '../../Auth/localStorageLogin/local-storage.service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {MatMenuItem} from '@angular/material/menu';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,7 @@ export class HeaderComponent implements OnInit {
   category: any[] = [];
   menuCategories: MenuItem[] = [];
 
-
+   subListPC: MenuItem[] = [];
   constructor(private viewportScroller: ViewportScroller,
               private route: Router,
               private service: MainService,
@@ -51,7 +52,7 @@ export class HeaderComponent implements OnInit {
     this.spinner.show();
     const subList: MenuItem[] = [];
     let subCategory: MenuItem[] = [];
-    const subListPC: MenuItem[] = [];
+
     this.service.getAllCategory().subscribe((response) => {
       if (response.success === true) {
         const result = response['data'];
@@ -79,7 +80,7 @@ export class HeaderComponent implements OnInit {
             command: event => this.goProduct(result[i]),
           });
           // @ts-ignore
-          subListPC.push([{
+          this.subListPC.push([{
             label: result[i]['title'], items: subCategory,
             command: event => this.goProduct(result[i]['_id']),
           }]);
@@ -135,7 +136,7 @@ export class HeaderComponent implements OnInit {
         {
 
           label: 'محصولات', icon: 'pi pi-fw pi-list',
-        //  items: subListPC,
+         items: this.subListPC || subList,
           styleClass: 'product'
         },
         {
