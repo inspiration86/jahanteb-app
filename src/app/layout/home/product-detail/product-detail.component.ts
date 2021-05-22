@@ -126,7 +126,7 @@ export class ProductDetailComponent implements OnInit {
       userID: new FormControl(this.localStorage.userJson['id'], [Validators.required]),
       productID: new FormControl(this.productID, [Validators.required]),
       date: new FormControl(this.date, [Validators.required]),
-      count: new FormControl(this.count, [Validators.required]),
+      count: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
       discountCode:new FormControl(null, ),
     });
