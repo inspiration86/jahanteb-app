@@ -7,7 +7,11 @@ import {ProfileComponent} from './profile/profile.component';
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: DashboardComponent,
+    children: [{
+      path: '',
+      component: ProfileComponent
+    }]
   },
   {
     path: '',
