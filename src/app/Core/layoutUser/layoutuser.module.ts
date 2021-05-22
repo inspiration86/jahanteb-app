@@ -8,6 +8,7 @@ import { OrdersComponent } from './orders/orders.component';
 import {ProfileComponent} from './profile/profile.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RippleModule} from 'primeng/ripple';
+import { ContentDashboardComponent } from './content-dashboard/content-dashboard.component';
 
 
 
@@ -15,7 +16,8 @@ import {RippleModule} from 'primeng/ripple';
   declarations: [
     DashboardComponent,
     OrdersComponent,
-    ProfileComponent
+    ProfileComponent,
+    ContentDashboardComponent
   ],
   imports: [
     CommonModule,
