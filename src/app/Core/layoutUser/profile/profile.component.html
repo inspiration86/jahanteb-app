@@ -72,7 +72,7 @@
               <label  class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شماره همراه:</label>
               <div class="p-col-12 p-md-9">
                 <p-inputNumber pKeyFilter="num" mode="decimal" formControlName="mobile" [(ngModel)]="user.mobile"
-                               [useGrouping]="false" minlength="11" maxlength="11"></p-inputNumber>
+                               [useGrouping]="false" minlength="11" maxlength="11" [disabled]="true"></p-inputNumber>
                 <ul
                   class="mt-1 text-right list-inline"
                   *ngFor="let error of errorMessages.mobile"
@@ -174,31 +174,20 @@
             </div>
             <div class="p-field p-grid">
               <label class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">استان:</label>
-              <div class="p-col-12 p-md-9" dir="rtl">
-                <p-dropdown [options]="states"
-                            appendTo="body"
-                            placeholder="استان را انتخاب کنید"
-                            optionLabel="label"
-                            [(ngModel)]="user.state"
-                            [filter]="true"
-                            (onChange)="stateOnChange($event)"
-                            formControlName="state">
-
-                  <ng-template pTemplate="selectedItem">
-                    <div
-                      class="state-item state-item-value"
-                      *ngIf="formGroup.controls['state'].value.label"
-                    >
-                      <div>{{ formGroup.controls["state"].value.label }}</div>
-                    </div>
-                  </ng-template>
-                  <ng-template let-state pTemplate="item">
-                    <div class="state-item text-right">
-                      <div class="text-right">{{ state.label }}</div>
-                    </div>
-                    {{user.state}}
-                  </ng-template>
+              <div class="p-col-10 p-md-9" dir="rtl">
+                <p-dropdown
+                  appendTo="body"
+                  emptyFilterMessage="نتیجه ای یافت نشد"
+                  [options]="states"
+                  optionLabel="label"
+                  [filter]="true"
+                  (onChange)="stateOnChange($event)"
+                  [(ngModel)]="user.state"
+                  placeholder="-- انتخاب کنید --"
+                >
                 </p-dropdown>
+                <div class="p-col-10 p-md-9 text-danger" dir="rtl">  {{user.state}}</div>
+
                 <ul
                   class="mt-1 text-right list-inline"
                   *ngFor="let error of errorMessages.state"
@@ -225,12 +214,18 @@
             <div class="p-field p-grid">
               <label  class="p-col-12 p-mb-2 p-md-3 p-mb-md-0">شهر:</label>
               <div class="p-col-12 p-md-9">
-                <p-dropdown [options]="cities"
-                            appendTo="body"
-                            placeholder="شهر را انتخاب کنید"
-                            optionLabel="label"
-                            (onChange)="citynChange($event)"
-                            [(ngModel)]="user.city" formControlName="city"></p-dropdown>
+                <p-dropdown
+                  appendTo="body"
+                  emptyFilterMessage="نتیجه ای یافت نشد"
+                  [options]="cities"
+                  optionLabel="label"
+                  [filter]="true"
+                  (onChange)="citynChange($event)"
+                  [(ngModel)]="user.city"
+                  placeholder="-- انتخاب کنید --"
+                >
+                </p-dropdown>
+                <div class="p-col-10 p-md-9 text-danger" dir="rtl">  {{user.city}}</div>
                 <ul
                   class="mt-1 text-right list-inline"
                   *ngFor="let error of errorMessages.city"
@@ -335,7 +330,7 @@
         <p-footer>
           <button pButton label="ثبت مشخصات"
                   class="ui-button-success" icon="pi pi-check" iconPos="left"
-                  (click)="updateUser()" [disabled]="formGroup.invalid"></button>
+                  (click)="updateUser()"></button>
         </p-footer>
       </p-panel>
 

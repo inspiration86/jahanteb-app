@@ -306,10 +306,12 @@ export class ProfileComponent implements OnInit {
   }
 
   citynChange(e: any): void {
-    this.formGroup.controls['city'].setValue(e.value['label']);
+    this.user.city=e.value['label'];
+    // this.formGroup.controls['city'].setValue(e.value['label']);
   }
 
   stateOnChange(e: any): void {
+    this.user.state=e.value['label'];
     this.formGroup.controls['state'].setValue(e.value['label']);
     this.cities = [];
     switch (e.value['value']) {
