@@ -31,6 +31,7 @@ import {SharedModules} from './shared/shared.module';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import {SharedmoduleModule} from './SharedModule/sharedmodule.module';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {ConfigService} from './configService';
 
 @NgModule({
     declarations: [
@@ -69,7 +70,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 
     ],
 
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

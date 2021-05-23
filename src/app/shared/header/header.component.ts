@@ -136,7 +136,7 @@ export class HeaderComponent implements OnInit {
         {
 
           label: 'محصولات', icon: 'pi pi-fw pi-list',
-         items: this.subListPC || subList,
+         // items: this.subListPC || subList,
           styleClass: 'product'
         },
         {

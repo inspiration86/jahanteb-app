@@ -1,12 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {ConfigService} from '../configService';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
-
-  constructor(private http: HttpClient) {
+  configData:any;
+  constructor(private http: HttpClient,private configService: ConfigService) {
+    this.configData = this.configService.loadJSON('./assets/config/config.json');
+    console.log(this.configData['hostURL'])
   }
 
 
@@ -23,6 +26,7 @@ export class MainService {
 
   ////#region news
   getAllNews(): any {
+    return this.http.get(this.configData);
     return this.http.get('http://api.jahantebkhoram.ir/api/v1/user/getAllNews');
   }
 
